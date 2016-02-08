@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Lesson 1," />
+  <meta name="keywords" content="data interaction between Activities," />
 
 
 
@@ -57,52 +57,17 @@
 
 
 
-<meta name="description" content="冠词
-定冠词
-你我都明确知道的东西。如果对方不知道的话肯定回问，你说的是哪个东西啊。
-专属名词 The yellow river. The summer palace.
-
-
-不定冠词：某个。
-零冠词：泛指某类。
-
-注意：中文句子中带冠词英文也得有。
-句子连接一个句子的核心是动词。
-两个句子用逗号分隔中间必须有连词（不能是带有连接意思的副词或者短语，如副词however）
-两个句子联系并不紧密可用：">
+<meta name="description" content="数据交互任何场景都是非常重要的，没有数据就没有应用。下面简单用一个图介绍一下Android中Actitivity数据交互的方式。如图：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="语法笔记「一」">
-<meta property="og:url" content="http://wiekern.github.io/2016/01/31/grammar-lesson1/index.html">
+<meta property="og:title" content="Activity 传递数据">
+<meta property="og:url" content="http://wiekern.github.io/2016/02/08/Activity-data-interaction/index.html">
 <meta property="og:site_name" content="二次加工">
-<meta property="og:description" content="冠词
-定冠词
-你我都明确知道的东西。如果对方不知道的话肯定回问，你说的是哪个东西啊。
-专属名词 The yellow river. The summer palace.
-
-
-不定冠词：某个。
-零冠词：泛指某类。
-
-注意：中文句子中带冠词英文也得有。
-句子连接一个句子的核心是动词。
-两个句子用逗号分隔中间必须有连词（不能是带有连接意思的副词或者短语，如副词however）
-两个句子联系并不紧密可用：">
-<meta property="og:updated_time" content="2016-01-31T20:58:03.000Z">
+<meta property="og:description" content="数据交互任何场景都是非常重要的，没有数据就没有应用。下面简单用一个图介绍一下Android中Actitivity数据交互的方式。如图：">
+<meta property="og:image" content="https://dl.dropboxusercontent.com/s/2001sq0pise2fqh/SendingDataInActivity.png?dl=0">
+<meta property="og:updated_time" content="2016-02-08T20:42:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="语法笔记「一」">
-<meta name="twitter:description" content="冠词
-定冠词
-你我都明确知道的东西。如果对方不知道的话肯定回问，你说的是哪个东西啊。
-专属名词 The yellow river. The summer palace.
-
-
-不定冠词：某个。
-零冠词：泛指某类。
-
-注意：中文句子中带冠词英文也得有。
-句子连接一个句子的核心是动词。
-两个句子用逗号分隔中间必须有连词（不能是带有连接意思的副词或者短语，如副词however）
-两个句子联系并不紧密可用：">
+<meta name="twitter:title" content="Activity 传递数据">
+<meta name="twitter:description" content="数据交互任何场景都是非常重要的，没有数据就没有应用。下面简单用一个图介绍一下Android中Actitivity数据交互的方式。如图：">
 
 
 
@@ -120,7 +85,7 @@
   };
 </script>
 
-  <title> 语法笔记「一」 | 二次加工 </title>
+  <title> Activity 传递数据 | 二次加工 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -250,7 +215,7 @@
             
             
               
-                语法笔记「一」
+                Activity 传递数据
               
             
           </h1>
@@ -262,8 +227,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-01-31T21:45:16+01:00" content="2016-01-31">
-              2016-01-31
+            <time itemprop="dateCreated" datetime="2016-02-08T21:41:11+01:00" content="2016-02-08">
+              2016-02-08
             </time>
           </span>
 
@@ -276,8 +241,8 @@
               <span class="post-meta-item-text">分類於</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/english-cottage/" itemprop="url" rel="index">
-                    <span itemprop="name">英语作坊</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android开发</span>
                   </a>
                 </span>
 
@@ -292,8 +257,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/31/grammar-lesson1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/31/grammar-lesson1/" itemprop="commentsCount"></span>
+                <a href="/2016/02/08/Activity-data-interaction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/08/Activity-data-interaction/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -314,50 +279,7 @@
       
 
       
-        <h2 id="u51A0_u8BCD"><a href="#u51A0_u8BCD" class="headerlink" title="冠词"></a>冠词</h2><ol>
-<li>定冠词<ul>
-<li>你我都明确知道的东西。如果对方不知道的话肯定回问，你说的是哪个东西啊。</li>
-<li>专属名词 The yellow river. The summer palace.</li>
-</ul>
-</li>
-<li>不定冠词：某个。</li>
-<li>零冠词：泛指某类。</li>
-</ol>
-<p><strong>注意：中文句子中带冠词英文也得有。</strong></p>
-<h2 id="u53E5_u5B50_u8FDE_u63A5"><a href="#u53E5_u5B50_u8FDE_u63A5" class="headerlink" title="句子连接"></a>句子连接</h2><p>一个句子的核心是动词。</p>
-<p>两个句子用逗号分隔中间必须有连词（不能是带有连接意思的副词或者短语，如副词however）</p>
-<p>两个句子联系并不紧密可用：</p>
-<ul>
-<li>分号：类比 排列 概念并列并不是动作</li>
-<li>句号：</li>
-</ul>
-<h2 id="u53E5_u5B50_u5206_u6790"><a href="#u53E5_u5B50_u5206_u6790" class="headerlink" title="句子分析"></a>句子分析</h2><p>By the 1970s, a new respect for the place of buildings within the existing townscape arose.</p>
-<p>People who lived(从句动词) in the cities and were（从句动词，与前面lived并列） not directly involved in trade often participated(核心动词) in small cottage industries making(非谓语动词，ing在主动词发生过程中，伴随着发生) handcrafted goods. 参加到作坊的同时，做手工艺品。</p>
-<h2 id="u975E_u8C13_u8BED_u52A8_u8BCD"><a href="#u975E_u8C13_u8BED_u52A8_u8BCD" class="headerlink" title="非谓语动词"></a>非谓语动词</h2><ol>
-<li>现在分词 -ing<br> 主动发出，正在进行</li>
-<li>过去/分词 -ed<br> 被动，已经完成</li>
-<li>将来 -to do</li>
-</ol>
-<h2 id="u7B80_u5355_u53E5_u7ED3_u6784"><a href="#u7B80_u5355_u53E5_u7ED3_u6784" class="headerlink" title="简单句结构"></a>简单句结构</h2><ol>
-<li><p>主谓宾 动作的发出和接受关系</p>
-<ul>
-<li>主谓</li>
-<li>谓宾 祈使句，你知道主语是谁。Help me.</li>
-<li>主谓 双宾语</li>
-<li><p>主谓宾+宾补 I elect you our monitor.</p>
-<p><strong>双宾语和宾补的区别？</strong></p>
-</li>
-<li><p>双宾语可以将动词后的名词（通常是人）加上介词放到直接宾语（原句中一般是物）后面。例：I baked him a cake = I baked a cake for him。 核心动词是bake，我们bake什么？蛋糕，而不是他！</p>
-</li>
-<li>宾补是对宾语的补充和描述。例：I elect you president。如果把句子当成双宾语：I elect president for/to you。 这表达完全不对。所以正确理解是：我选你，你当班长。班长用来补充你。「我选你」，句子明显少信息。</li>
-</ul>
-</li>
-<li>主系表 <ul>
-<li>状态和表达的描述关系 例：这个菜很难吃。我很冷。</li>
-<li>感官动词也是系动词</li>
-</ul>
-</li>
-</ol>
+        <p>数据交互任何场景都是非常重要的，没有数据就没有应用。下面简单用一个图介绍一下Android中Actitivity数据交互的方式。如图：<br><img src="https://dl.dropboxusercontent.com/s/2001sq0pise2fqh/SendingDataInActivity.png?dl=0" alt="Activity间传递数据"></p>
 
       
     </div>
@@ -366,7 +288,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Lesson-1/" rel="tag">#Lesson 1</a>
+            <a href="/tags/data-interaction-between-Activities/" rel="tag">#data interaction between Activities</a>
           
         </div>
       
@@ -375,17 +297,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/20/EinfuehrungStudieren/" rel="next" title="求学德国「开篇」">
-                <i class="fa fa-chevron-left"></i> 求学德国「开篇」
+              <a href="/2016/02/07/grammar-lesson2/" rel="next" title="语法笔记「二」">
+                <i class="fa fa-chevron-left"></i> 语法笔记「二」
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/02/07/grammar-lesson2/" rel="prev" title="语法笔记「二」">
-                语法笔记「二」 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -506,7 +424,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u51A0_u8BCD"><span class="nav-number">1.</span> <span class="nav-text">冠词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53E5_u5B50_u8FDE_u63A5"><span class="nav-number">2.</span> <span class="nav-text">句子连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53E5_u5B50_u5206_u6790"><span class="nav-number">3.</span> <span class="nav-text">句子分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u975E_u8C13_u8BED_u52A8_u8BCD"><span class="nav-number">4.</span> <span class="nav-text">非谓语动词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7B80_u5355_u53E5_u7ED3_u6784"><span class="nav-number">5.</span> <span class="nav-text">简单句结构</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目錄</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -764,9 +682,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'wiekern';
-      var disqus_identifier = '2016/01/31/grammar-lesson1/';
-      var disqus_title = '语法笔记「一」';
-      var disqus_url = 'http://wiekern.github.io/2016/01/31/grammar-lesson1/';
+      var disqus_identifier = '2016/02/08/Activity-data-interaction/';
+      var disqus_title = 'Activity 传递数据';
+      var disqus_url = 'http://wiekern.github.io/2016/02/08/Activity-data-interaction/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
