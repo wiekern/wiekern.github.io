@@ -231,6 +231,182 @@
             
               
                 
+                <a class="post-title-link" href="/2016/02/12/throw-throws-java/" itemprop="url">
+                  throw and throws in Java
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-02-12T10:53:45+01:00" content="2016-02-12">
+              2016-02-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java-programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Java编程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/12/throw-throws-java/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/12/throw-throws-java/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本文主要通过checked Exception探讨两者的区别，因为checked必须处理，否则编译出错。当我们理解了throw,throws对checked Exception的作用，unchecked也迎刃而解。</p>
+<ul>
+<li>throws</li>
+</ul>
+<p>用来声明可能会抛出的异常，然后将异常处理交由上级处理。这样写代码的时候可以不用try..catch。</p>
+<pre><code>
+//通过throws处理异常
+class Person {
+    public void eat() throws FileNotFoundException {
+        FileInputStream fs = new FileInputStream("fruit.txt");
+        //此处可能会出现FileNotFoundException，
+        //而FileNotFoundException 属于checked Exception，
+        //因此必须处理该异常，你是用throws的方式抛出给上级去处理或者自己try...catch就由你自己权衡。
+    }
+}
+
+//通过try...catch处理异常
+class Person {
+    public void eat() {
+        try {
+            FileInputStream fs = new FileInputStream("fruit.txt");
+        } catch (FileNotFoundException e) {
+            //可以什么都不做
+        }
+        //编译不会报错。但是如果谁调用此方法，必须处理该checked Exception（这两种方法任选其一），否则编译报错。
+    }
+}
+</code></pre>
+
+<p>由此看来，throws是一种用来处理异常的方式，即声明异常交由上级调用者处理，这样在对checked Exception必须做出处理时，免去了try…catch。</p>
+<ul>
+<li>throw</li>
+</ul>
+<p>直接抛出一个异常。如果抛出checked Exception，那么必须处理，还是一个道理，上面的方式两选一。</p>
+<pre><code>
+//throw 抛出异常
+//如果你这么写，编译报错
+class Person {
+    public void eat() {
+        throw new FileNotFoundException("checked Exception");
+        //抛出checked Exception，但是没处理。
+    }
+} 
+
+//第一种：throws交由上级处理
+class Person {
+    public void eat() throws FileNotFoundException {
+        throw new FileNotFoundException("checked Exception");
+    }
+}
+//为何此处既有throw又有throws呢？throw抛出异常，throws处理异常，两者分工合作很愉快。
+
+//第二种：try...catch处理
+//此处仅供学习，应该没人这么写。
+class Person {
+    public void eat() {
+        try {
+            throw new FileNotFoundException("checked Exception");
+        } catch (FileNotFoundException e) {
+            //do something
+        }
+    }
+}
+</code></pre>
+
+<p>###为什么throw抛出异常的第二种方式正常不会有人这样写？<br><strong>我的思考是：</strong>用try去抛出一个异常然后自己再去catch并处理，这不是多此一举吗！我们用throw抛出一个异常肯定是希望上级去处理，所以应该用第一种。</p>
+<p>至此，unchecked Exception的处理也是同样的道理，只是编译器不强制你处理，所以编译能通过，但是程序一旦运行（所以它也称Runtime Exception），unchecked Exception没有被处理，程序肯定是要崩溃的。</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/02/08/Activity-data-interaction/" itemprop="url">
                   Activity 传递数据
                 </a>
@@ -320,6 +496,436 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/02/07/grammar-lesson2/" itemprop="url">
+                  语法笔记「二」
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-02-07T18:57:20+01:00" content="2016-02-07">
+              2016-02-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/english-cottage/" itemprop="url" rel="index">
+                    <span itemprop="name">英语作坊</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/07/grammar-lesson2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/07/grammar-lesson2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="u4E3A_u4EC0_u4E48_u6709_u8BED_u6CD5_uFF1F"><a href="#u4E3A_u4EC0_u4E48_u6709_u8BED_u6CD5_uFF1F" class="headerlink" title="为什么有语法？"></a>为什么有语法？</h2><p>语法是后于语言出现的，是为了规范语言，使表达没有歧义。</p>
+<h2 id="u7CFB_u52A8_u8BCD_u3001_u5B9A_u72B6_u8865"><a href="#u7CFB_u52A8_u8BCD_u3001_u5B9A_u72B6_u8865" class="headerlink" title="系动词、定状补"></a>系动词、定状补</h2><p>系动词：起连系作用的词。</p>
+<p>补语：补充主语或宾语</p>
+<p>定语：修饰名词 形容词 定语从句（有时候带逻辑，带动词关系） 介词加名词 </p>
+<p>状语：修饰动词 时间 地点 条件 原因 结果 频率 方式 目的<br>我在楼下碰到小偷。 在楼下只和碰到这个动词有关系。</p>
+<p><strong>Tip:</strong> 瞬间动作加ing变成将来</p>
+<blockquote>
+<ol>
+<li>going: going to</li>
+<li>coming: The rain is coming，将要下雨了。</li>
+<li>dying: die的现在分词，The old man is dying。这位老人即将离世。快要死了，而不你不能说正在死，没死绝。</li>
+</ol>
+</blockquote>
+<h2 id="u6838_u5FC3_u52A8_u8BCD_u5B9A_u4F4D"><a href="#u6838_u5FC3_u52A8_u8BCD_u5B9A_u4F4D" class="headerlink" title="核心动词定位"></a>核心动词定位</h2><ol>
+<li>be动词</li>
+<li>动词原形，三单(v-es)，过去式（did,-ed）</li>
+<li>助动词<ul>
+<li>当动词想表达否定，倒装，完成 do did does have has had</li>
+</ul>
+</li>
+<li>情态动词<ul>
+<li>与核心动词搭配使用。can shall may could should might</li>
+</ul>
+</li>
+</ol>
+<h2 id="u975E_u8C13_u8BED_u52A8_u8BCD_u7684_u5F62_u5F0F"><a href="#u975E_u8C13_u8BED_u52A8_u8BCD_u7684_u5F62_u5F0F" class="headerlink" title="非谓语动词的形式"></a>非谓语动词的形式</h2><ol>
+<li>现在分词 -ing<ul>
+<li>主动发出，正在进行</li>
+</ul>
+</li>
+<li>过去分词 -ed<ul>
+<li>被动接受，已经完成</li>
+</ul>
+</li>
+<li>不定式 to do<ul>
+<li>目的意图，将来趋势</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>非谓语动词：除不能作系动词、谓语。其他成分都可以。</li>
+<li>状语：如何用一个动词去修饰核心动词。多个动词同时发生，主要动词作核心动词，其他动词则用非谓语形式出现。如：</li>
+</ul>
+<blockquote>
+<p>After heartbroken（整个句子主语都是he，无需写）, he left his city, crying, to look for a new life.<br>After encouraged by his teacher, he quited present job, preparing to go abroad. </p>
+</blockquote>
+<p><strong>注：</strong>两个句子（前提是句子，如果短语的话就不需要）间逗号隔开，必须用连词。所以上面例子中preparing前不用加连词。</p>
+<h2 id="u4E0B_u8282_u63D0_u793A"><a href="#u4E0B_u8282_u63D0_u793A" class="headerlink" title="下节提示"></a>下节提示</h2><ol>
+<li>动词又分 <ul>
+<li>及物</li>
+<li>不及物 接物时需要介词，介词表达动词的方向或结果</li>
+</ul>
+</li>
+<li>介词</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/31/grammar-lesson1/" itemprop="url">
+                  语法笔记「一」
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-01-31T21:45:16+01:00" content="2016-01-31">
+              2016-01-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/english-cottage/" itemprop="url" rel="index">
+                    <span itemprop="name">英语作坊</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/31/grammar-lesson1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/31/grammar-lesson1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="u51A0_u8BCD"><a href="#u51A0_u8BCD" class="headerlink" title="冠词"></a>冠词</h2><ol>
+<li>定冠词<ul>
+<li>你我都明确知道的东西。如果对方不知道的话肯定回问，你说的是哪个东西啊。</li>
+<li>专属名词 The yellow river. The summer palace.</li>
+</ul>
+</li>
+<li>不定冠词：某个。</li>
+<li>零冠词：泛指某类。</li>
+</ol>
+<p><strong>注意：中文句子中带冠词英文也得有。</strong></p>
+<h2 id="u53E5_u5B50_u8FDE_u63A5"><a href="#u53E5_u5B50_u8FDE_u63A5" class="headerlink" title="句子连接"></a>句子连接</h2><p>一个句子的核心是动词。</p>
+<p>两个句子用逗号分隔中间必须有连词（不能是带有连接意思的副词或者短语，如副词however）</p>
+<p>两个句子联系并不紧密可用：</p>
+<ul>
+<li>分号：类比 排列 概念并列并不是动作</li>
+<li>句号：</li>
+</ul>
+<h2 id="u53E5_u5B50_u5206_u6790"><a href="#u53E5_u5B50_u5206_u6790" class="headerlink" title="句子分析"></a>句子分析</h2><p>By the 1970s, a new respect for the place of buildings within the existing townscape arose.</p>
+<p>People who lived(从句动词) in the cities and were（从句动词，与前面lived并列） not directly involved in trade often participated(核心动词) in small cottage industries making(非谓语动词，ing在主动词发生过程中，伴随着发生) handcrafted goods. 参加到作坊的同时，做手工艺品。</p>
+<h2 id="u975E_u8C13_u8BED_u52A8_u8BCD"><a href="#u975E_u8C13_u8BED_u52A8_u8BCD" class="headerlink" title="非谓语动词"></a>非谓语动词</h2><ol>
+<li>现在分词 -ing<br> 主动发出，正在进行</li>
+<li>过去/分词 -ed<br> 被动，已经完成</li>
+<li>将来 -to do</li>
+</ol>
+<h2 id="u7B80_u5355_u53E5_u7ED3_u6784"><a href="#u7B80_u5355_u53E5_u7ED3_u6784" class="headerlink" title="简单句结构"></a>简单句结构</h2><ol>
+<li><p>主谓宾 动作的发出和接受关系</p>
+<ul>
+<li>主谓</li>
+<li>谓宾 祈使句，你知道主语是谁。Help me.</li>
+<li>主谓 双宾语</li>
+<li><p>主谓宾+宾补 I elect you our monitor.</p>
+<p><strong>双宾语和宾补的区别？</strong></p>
+</li>
+<li><p>双宾语可以将动词后的名词（通常是人）加上介词放到直接宾语（原句中一般是物）后面。例：I baked him a cake = I baked a cake for him。 核心动词是bake，我们bake什么？蛋糕，而不是他！</p>
+</li>
+<li>宾补是对宾语的补充和描述。例：I elect you president。如果把句子当成双宾语：I elect president for/to you。 这表达完全不对。所以正确理解是：我选你，你当班长。班长用来补充你。「我选你」，句子明显少信息。</li>
+</ul>
+</li>
+<li>主系表 <ul>
+<li>状态和表达的描述关系 例：这个菜很难吃。我很冷。</li>
+<li>感官动词也是系动词</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/20/EinfuehrungStudieren/" itemprop="url">
+                  求学德国「开篇」
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-01-20T19:05:58+01:00" content="2016-01-20">
+              2016-01-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Deutschland/" itemprop="url" rel="index">
+                    <span itemprop="name">求学德国</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/20/EinfuehrungStudieren/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/20/EinfuehrungStudieren/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前言：15年夏天踏入了德国这片土地，为此准备了一年，那时我已工作3年。对于奔三的我，这算是不大不小的一个决定，因为在这个想法萌生的那一刻我便面临着语言这一障碍。自打学外语开始，我就少根筋，一直对外语不感冒。连英语都没学好的我，更别提要攻克比英语更难几个等级的德语。为了能在德国上大学，自己也下了一番功夫，几经周折，我最终还是顺利迈出了求学的第一步——在德国继续自己的德语学习。</p>
+<p>写这样一个系列的文章，记录在德国的学习经历。一方面是对生活的记录，因为学习也是生活中的一部分；另一方面是对所学知识的提炼并分享，利人利已，知识应该是像水一般流动的，不然就是一滩死水。曾看过一篇博客提到：「如果你不懂书本上的某些概念或者知识点，为了把它们弄明白，你应该多方面查阅参考资料，从中摘抄有用的信息，去理解。最后，用自己的话复述并讲明白，这才算知识属于你了」，这便是我将要在我的博客中写下的。</p>
+<p>我所学专业是Angewandte Informatik（本科），直译的话是应用信息，和计算机科学专业(Computer Science)相差无几，因为开设的课程大同小异。所以我的博客会涉及到数学，逻辑学，编程，网络，数据库等方面，即分享我所学课程的知识。</p>
+<p>万事开头难，希望我能将这个系列坚持写下去！</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
 
   </section>
 
@@ -362,21 +968,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">分類</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
