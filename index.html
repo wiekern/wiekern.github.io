@@ -199,15 +199,6 @@
 
     
     
-      
-      
-        
-        
-        
-      
-
-      
-    
 
     
       
@@ -364,7 +355,7 @@ class Person {
 }
 </code></pre>
 
-<p>###为什么throw抛出异常的第二种方式正常不会有人这样写？<br><strong>我的思考是：</strong>用try去抛出一个异常然后自己再去catch并处理，这不是多此一举吗！我们用throw抛出一个异常肯定是希望上级去处理，所以应该用第一种。</p>
+<h3 id="u4E3A_u4EC0_u4E48throw_u629B_u51FA_u5F02_u5E38_u7684_u7B2C_u4E8C_u79CD_u65B9_u5F0F_u6B63_u5E38_u4E0D_u4F1A_u6709_u4EBA_u8FD9_u6837_u5199_uFF1F"><a href="#u4E3A_u4EC0_u4E48throw_u629B_u51FA_u5F02_u5E38_u7684_u7B2C_u4E8C_u79CD_u65B9_u5F0F_u6B63_u5E38_u4E0D_u4F1A_u6709_u4EBA_u8FD9_u6837_u5199_uFF1F" class="headerlink" title="为什么throw抛出异常的第二种方式正常不会有人这样写？"></a>为什么throw抛出异常的第二种方式正常不会有人这样写？</h3><p><strong>我的思考是：</strong>用try去抛出一个异常然后自己再去catch并处理，这不是多此一举吗！我们用throw抛出一个异常肯定是希望上级去处理，所以应该用第一种。</p>
 <p>至此，unchecked Exception的处理也是同样的道理，只是编译器不强制你处理，所以编译能通过，但是程序一旦运行（所以它也称Runtime Exception），unchecked Exception没有被处理，程序肯定是要崩溃的。</p>
 
           
