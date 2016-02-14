@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="二项分布 Binomialverteilung," />
 
 
 
@@ -57,43 +57,22 @@
 
 
 
-<meta name="description" content="为什么有语法？语法是后于语言出现的，是为了规范语言，使表达没有歧义。
-系动词、定状补系动词：起连系作用的词。
-补语：补充主语或宾语
-定语：修饰名词 形容词 定语从句（有时候带逻辑，带动词关系） 介词加名词 
-状语：修饰动词 时间 地点 条件 原因 结果 频率 方式 目的我在楼下碰到小偷。 在楼下只和碰到这个动词有关系。
-Tip: 瞬间动作加ing变成将来
-
-
-going: going to
-com">
+<meta name="description" content="缘自不理解二项分布的期望，方差和似然函数，而又必须面对期末考试，为了不挂科所以必须把这些概念和推导搞明白。
+二项分布是啥？伯努力实验（Bernoulli-Experiment）：非黑即白，只有{1,0}两个结果。1:事件发生，0:事件不发生。一般我们会做这样的实验：抛n次硬币，m次是头(Kopf)的概率。这就服从二项分布。
+特别注意：我们必须分清，整个N次实验对应的随机变量X和单次的（比如：$\b">
 <meta property="og:type" content="article">
-<meta property="og:title" content="语法笔记「二」">
-<meta property="og:url" content="http://wiekern.github.io/2016/02/07/grammar-lesson2/index.html">
+<meta property="og:title" content="二项分布令人迷惑的n次和1次实验的期望">
+<meta property="og:url" content="http://wiekern.github.io/2016/02/14/Binomialverteilung/index.html">
 <meta property="og:site_name" content="二次加工">
-<meta property="og:description" content="为什么有语法？语法是后于语言出现的，是为了规范语言，使表达没有歧义。
-系动词、定状补系动词：起连系作用的词。
-补语：补充主语或宾语
-定语：修饰名词 形容词 定语从句（有时候带逻辑，带动词关系） 介词加名词 
-状语：修饰动词 时间 地点 条件 原因 结果 频率 方式 目的我在楼下碰到小偷。 在楼下只和碰到这个动词有关系。
-Tip: 瞬间动作加ing变成将来
-
-
-going: going to
-com">
-<meta property="og:updated_time" content="2016-02-14T15:59:37.000Z">
+<meta property="og:description" content="缘自不理解二项分布的期望，方差和似然函数，而又必须面对期末考试，为了不挂科所以必须把这些概念和推导搞明白。
+二项分布是啥？伯努力实验（Bernoulli-Experiment）：非黑即白，只有{1,0}两个结果。1:事件发生，0:事件不发生。一般我们会做这样的实验：抛n次硬币，m次是头(Kopf)的概率。这就服从二项分布。
+特别注意：我们必须分清，整个N次实验对应的随机变量X和单次的（比如：$\b">
+<meta property="og:updated_time" content="2016-02-14T16:22:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="语法笔记「二」">
-<meta name="twitter:description" content="为什么有语法？语法是后于语言出现的，是为了规范语言，使表达没有歧义。
-系动词、定状补系动词：起连系作用的词。
-补语：补充主语或宾语
-定语：修饰名词 形容词 定语从句（有时候带逻辑，带动词关系） 介词加名词 
-状语：修饰动词 时间 地点 条件 原因 结果 频率 方式 目的我在楼下碰到小偷。 在楼下只和碰到这个动词有关系。
-Tip: 瞬间动作加ing变成将来
-
-
-going: going to
-com">
+<meta name="twitter:title" content="二项分布令人迷惑的n次和1次实验的期望">
+<meta name="twitter:description" content="缘自不理解二项分布的期望，方差和似然函数，而又必须面对期末考试，为了不挂科所以必须把这些概念和推导搞明白。
+二项分布是啥？伯努力实验（Bernoulli-Experiment）：非黑即白，只有{1,0}两个结果。1:事件发生，0:事件不发生。一般我们会做这样的实验：抛n次硬币，m次是头(Kopf)的概率。这就服从二项分布。
+特别注意：我们必须分清，整个N次实验对应的随机变量X和单次的（比如：$\b">
 
 
 
@@ -111,7 +90,7 @@ com">
   };
 </script>
 
-  <title> 语法笔记「二」 | 二次加工 </title>
+  <title> 二项分布令人迷惑的n次和1次实验的期望 | 二次加工 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -241,7 +220,7 @@ com">
             
             
               
-                语法笔记「二」
+                二项分布令人迷惑的n次和1次实验的期望
               
             
           </h1>
@@ -253,8 +232,8 @@ com">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-07T18:57:20+01:00" content="2016-02-07">
-              2016-02-07
+            <time itemprop="dateCreated" datetime="2016-02-14T16:54:47+01:00" content="2016-02-14">
+              2016-02-14
             </time>
           </span>
 
@@ -267,8 +246,8 @@ com">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/english-cottage/" itemprop="url" rel="index">
-                    <span itemprop="name">英语作坊</span>
+                  <a href="/categories/Deutschland/" itemprop="url" rel="index">
+                    <span itemprop="name">求学德国</span>
                   </a>
                 </span>
 
@@ -283,8 +262,8 @@ com">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/02/07/grammar-lesson2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/07/grammar-lesson2/" itemprop="commentsCount"></span>
+                <a href="/2016/02/14/Binomialverteilung/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/14/Binomialverteilung/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,83 +284,92 @@ com">
       
 
       
-        <h2 id="u4E3A_u4EC0_u4E48_u6709_u8BED_u6CD5_uFF1F"><a href="#u4E3A_u4EC0_u4E48_u6709_u8BED_u6CD5_uFF1F" class="headerlink" title="为什么有语法？"></a>为什么有语法？</h2><p>语法是后于语言出现的，是为了规范语言，使表达没有歧义。</p>
-<h2 id="u7CFB_u52A8_u8BCD_u3001_u5B9A_u72B6_u8865"><a href="#u7CFB_u52A8_u8BCD_u3001_u5B9A_u72B6_u8865" class="headerlink" title="系动词、定状补"></a>系动词、定状补</h2><p>系动词：起连系作用的词。</p>
-<p>补语：补充主语或宾语</p>
-<p>定语：修饰名词 形容词 定语从句（有时候带逻辑，带动词关系） 介词加名词 </p>
-<p>状语：修饰动词 时间 地点 条件 原因 结果 频率 方式 目的<br>我在楼下碰到小偷。 在楼下只和碰到这个动词有关系。</p>
-<p><strong>Tip:</strong> 瞬间动作加ing变成将来</p>
-<blockquote>
-<ol>
-<li>going: going to</li>
-<li>coming: The rain is coming，将要下雨了。</li>
-<li>dying: die的现在分词，The old man is dying。这位老人即将离世。快要死了，而不你不能说正在死，没死绝。</li>
-</ol>
-</blockquote>
-<h2 id="u6838_u5FC3_u52A8_u8BCD_u5B9A_u4F4D"><a href="#u6838_u5FC3_u52A8_u8BCD_u5B9A_u4F4D" class="headerlink" title="核心动词定位"></a>核心动词定位</h2><ol>
-<li>be动词</li>
-<li>动词原形，三单(v-es)，过去式（did,-ed）</li>
-<li>助动词<ul>
-<li>当动词想表达否定，倒装，完成 do did does have has had</li>
-</ul>
-</li>
-<li>情态动词<ul>
-<li>与核心动词搭配使用。can shall may could should might</li>
-</ul>
-</li>
-</ol>
-<h2 id="u975E_u8C13_u8BED_u52A8_u8BCD_u7684_u5F62_u5F0F"><a href="#u975E_u8C13_u8BED_u52A8_u8BCD_u7684_u5F62_u5F0F" class="headerlink" title="非谓语动词的形式"></a>非谓语动词的形式</h2><ol>
-<li>现在分词 -ing<ul>
-<li>主动发出，正在进行</li>
-</ul>
-</li>
-<li>过去分词 -ed<ul>
-<li>被动接受，已经完成</li>
-</ul>
-</li>
-<li>不定式 to do<ul>
-<li>目的意图，将来趋势</li>
-</ul>
-</li>
-</ol>
+        <p>缘自不理解二项分布的期望，方差和似然函数，而又必须面对期末考试，为了不挂科所以必须把这些概念和推导搞明白。</p>
+<h3 id="u4E8C_u9879_u5206_u5E03_u662F_u5565_uFF1F"><a href="#u4E8C_u9879_u5206_u5E03_u662F_u5565_uFF1F" class="headerlink" title="二项分布是啥？"></a>二项分布是啥？</h3><p>伯努力实验（Bernoulli-Experiment）：非黑即白，只有{1,0}两个结果。1:事件发生，0:事件不发生。<br>一般我们会做这样的实验：抛n次硬币，m次是头(Kopf)的概率。这就服从二项分布。</p>
+<p><strong>特别注意：</strong>我们必须分清，整个N次实验对应的随机变量X和单次的（比如：$\bar X$，此时$\bar X$对应的正态分布函数和X是不同的。）</p>
+<hr>
+<h3 id="N_u6B21_u548C1_u6B21"><a href="#N_u6B21_u548C1_u6B21" class="headerlink" title="N次和1次"></a>N次和1次</h3><p>首先我必须吐槽一下，我个人经常被二项分布里的N次实验和1次实验（比如均值）给弄得找不着北。我们知道期望一般都是用符号$\mu$来表示，但是经常我们看到的是这样：</p>
 <ul>
-<li>非谓语动词：除不能作系动词、谓语。其他成分都可以。</li>
-<li>状语：如何用一个动词去修饰核心动词。多个动词同时发生，主要动词作核心动词，其他动词则用非谓语形式出现。如：</li>
+<li>$N次实验: E(X)=\mu$</li>
+<li>$均值\bar X的期望: E(\bar X)=\frac{1}{n}\sum_{i=1}^nE(x_i)=\frac{1}{n}n\mu=\mu$</li>
 </ul>
-<blockquote>
-<p>After heartbroken（整个句子主语都是he，无需写）, he left his city, crying, to look for a new life.<br>After encouraged by his teacher, he quited present job, preparing to go abroad. </p>
-</blockquote>
-<p><strong>注：</strong>两个句子（前提是句子，如果短语的话就不需要）间逗号隔开，必须用连词。所以上面例子中preparing前不用加连词。</p>
-<h2 id="u4E0B_u8282_u63D0_u793A"><a href="#u4E0B_u8282_u63D0_u793A" class="headerlink" title="下节提示"></a>下节提示</h2><ol>
-<li>动词又分 <ul>
-<li>及物</li>
-<li>不及物 接物时需要介词，介词表达动词的方向或结果</li>
-</ul>
+<p>我不禁要说，这是闹哪样？你俩的结果看起来完全一样！这导致我一直不理解二项分布。实际上我们应该像<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E9%A0%85%E5%88%86%E4%BD%88" target="_blank" rel="external">wikipedia</a>上一样写：</p>
+<ul>
+<li><p>$N次实验: E(X)=\mu_n$</p>
+<p>  下标加上n就知道是n次伯努力实验，因此$\mu_n=np$。</p>
 </li>
-<li>介词</li>
+<li><p>$均值\bar X的期望: E(\bar X)=\frac{1}{n}\sum_{i=1}^nE(x_i)=\frac{1}{n}n\mu=\mu$</p>
+<p>  这里不用变，因为就表示一次伯努力实验，一次实验的结果只有0和1的可能。当P代表出现的概率时，$E(x_i)=P+0(1-P)=P=\mu$。所以一次实验的期望始终是P。</p>
+</li>
+</ul>
+<h3 id="u4E8C_u9879_u5206_u5E03_u5747_u503C_u7684_u671F_u671B_u548C_u65B9_u5DEE"><a href="#u4E8C_u9879_u5206_u5E03_u5747_u503C_u7684_u671F_u671B_u548C_u65B9_u5DEE" class="headerlink" title="二项分布均值的期望和方差"></a>二项分布均值的期望和方差</h3><p>事件发生的概率 P，对应于值「1」<br>事件未发生的概率 1-P，对应于值「0」</p>
+<ol>
+<li><p>一次伯努力实验的期望和方差，如下：<br>$E(x_i)=P+0(1-P)=P=\mu,i=1,2,3…n$<br>$Var(x_i)=E((x_i-\mu)^2)=E(x_i^2)-\mu^2=1^2P+0^2(1-P)=P-\mu^2=P-P^2=P(1-P)$</p>
+</li>
+<li><p>均值的期望和方差<br>$E(\bar X)=\frac{1}{n}\sum_{i=1}^nE(x_i)=\frac{1}{n}n\mu=\mu＝P$<br>$Var(\bar X)=Var(\frac{x_1+…+x_n}{n})=\frac{1}{n^2}\sum_{i=1}^nVar(x_i)=\frac{1}{n^2}n\sigma^2=\frac{\sigma^2}{n}=\frac{P(1-P)}{n}$</p>
+</li>
 </ol>
+<h3 id="u6B63_u6001_u5206_u5E03_u5173_u4E8E_u5747_u503C_u7684_u8003_u8BD5_u9898_u578B"><a href="#u6B63_u6001_u5206_u5E03_u5173_u4E8E_u5747_u503C_u7684_u8003_u8BD5_u9898_u578B" class="headerlink" title="正态分布关于均值的考试题型"></a>正态分布关于均值的考试题型</h3><p>我经常在置信区间遇到这种类型的题目。比如平时练习中的一道题：</p>
+<blockquote>
+<p>Ein Psychologe misst bei 100 zufällig ausgewählten Personen die Reaktionszeit auf ein bestimmtes Signal. Dabei ergibt sich ein Mittelwert von $\bar X = 0,80$ Sekunden. Unter Annahme, dass die Zufallsvariablen $X_1, …, X_{100}$, welche die Reaktionszeit beschreiben, unabhängig und $N(\mu, 0,04)$-verteilt sind, berechne man ein 0,95-Konfidenzintervall für $\mu$.<br>一次心理测验中，随机选中100个人，测试其对于一个特定信号的反应时间。给定平均值为0,80秒。在这种假设下，每个随机变量$X_1, …, X_{100}$都描述反应时间，它们互相独立且满足$N(\mu, 0,04)$正态分布，求0,95-置信区间下的$\mu$。注：0,04=0.04</p>
+</blockquote>
+<p>给定如下正态分布表格</p>
+<table>
+<thead>
+<tr>
+<th>$\alpha$</th>
+<th style="text-align:center">0,05</th>
+<th style="text-align:center">0,025</th>
+<th style="text-align:center">0,005</th>
+<th style="text-align:center">0,0025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1-\alpha$</td>
+<td style="text-align:center">0,95</td>
+<td style="text-align:center">0,975</td>
+<td style="text-align:center">0,995</td>
+<td style="text-align:center">0,9975</td>
+</tr>
+<tr>
+<td>$\phi^-1(1-\alpha)$</td>
+<td style="text-align:center">1,645</td>
+<td style="text-align:center">1,960</td>
+<td style="text-align:center">2,576</td>
+<td style="text-align:center">2,807</td>
+</tr>
+</tbody>
+</table>
+<p>解:<br>标准化均值随机变量：$\frac{\bar X-E(\bar X)}{\sqrt{Var(\bar X)}}=\frac{\bar X-\mu}{\sqrt{\frac{\sigma^2}{n}}}=\sqrt{n}\frac{\bar X-\mu}{\sigma}$</p>
+<p>$\alpha=0,05 \Leftrightarrow 1-\frac{\alpha}{2}=0,975$<br>查表可知：$c=\phi^{-1}(0,975)=1,960$</p>
+<p>又$P(|\sqrt{n}\frac{\bar X-\mu}{\sigma}|\leq c)=1-\alpha=0,95$</p>
+<p>$|\sqrt{n}\frac{\bar X-\mu}{\sigma}|\leq c$<br>$\Leftrightarrow -c \leq\sqrt{n}\frac{\bar X-\mu}{\sigma} \leq c$<br>$\Leftrightarrow -c\frac{\sigma}{\sqrt{n}} \leq \bar X-\mu \leq c\frac{\sigma}{\sqrt{n}}$<br>$\Leftrightarrow -c\frac{\sigma}{\sqrt{n}}-\bar X \leq -\mu \leq c\frac{\sigma}{\sqrt{n}}-\bar X$<br>$\Leftrightarrow c\frac{\sigma}{\sqrt{n}}+\bar X \geq \mu \geq -c\frac{\sigma}{\sqrt{n}}+\bar X$<br>将$\sigma=\sqrt{0,04}=0,2, n=100, \bar X=0,8, c=1,96$代入上式得：<br>$1,96\frac{0,2}{\sqrt{100}}+0,8 \geq \mu \geq -1,96\frac{0,2}{\sqrt{100}}+0,8$<br>$\Leftrightarrow 0,8392 \geq \mu \geq 0,7608$</p>
+<p>因此$\mu \in [0,7608 , 0,8392]$是$\mu$的0,95-置信空间。<br>也就是说我们估计$\mu$有95的概率落在[0,7608 , 0,8392]此区间。</p>
 
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/二项分布-Binomialverteilung/" rel="tag">#二项分布 Binomialverteilung</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/31/grammar-lesson1/" rel="next" title="语法笔记「一」">
-                <i class="fa fa-chevron-left"></i> 语法笔记「一」
+              <a href="/2016/02/12/throw-throws-java/" rel="next" title="throw and throws in Java">
+                <i class="fa fa-chevron-left"></i> throw and throws in Java
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/02/08/Activity-data-interaction/" rel="prev" title="Activity 传递数据">
-                Activity 传递数据 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -502,7 +490,7 @@ com">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E3A_u4EC0_u4E48_u6709_u8BED_u6CD5_uFF1F"><span class="nav-number">1.</span> <span class="nav-text">为什么有语法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7CFB_u52A8_u8BCD_u3001_u5B9A_u72B6_u8865"><span class="nav-number">2.</span> <span class="nav-text">系动词、定状补</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6838_u5FC3_u52A8_u8BCD_u5B9A_u4F4D"><span class="nav-number">3.</span> <span class="nav-text">核心动词定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u975E_u8C13_u8BED_u52A8_u8BCD_u7684_u5F62_u5F0F"><span class="nav-number">4.</span> <span class="nav-text">非谓语动词的形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E0B_u8282_u63D0_u793A"><span class="nav-number">5.</span> <span class="nav-text">下节提示</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E8C_u9879_u5206_u5E03_u662F_u5565_uFF1F"><span class="nav-number">1.</span> <span class="nav-text">二项分布是啥？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#N_u6B21_u548C1_u6B21"><span class="nav-number">2.</span> <span class="nav-text">N次和1次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E8C_u9879_u5206_u5E03_u5747_u503C_u7684_u671F_u671B_u548C_u65B9_u5DEE"><span class="nav-number">3.</span> <span class="nav-text">二项分布均值的期望和方差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6B63_u6001_u5206_u5E03_u5173_u4E8E_u5747_u503C_u7684_u8003_u8BD5_u9898_u578B"><span class="nav-number">4.</span> <span class="nav-text">正态分布关于均值的考试题型</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -760,9 +748,9 @@ com">
 
     <script type="text/javascript">
       var disqus_shortname = 'wiekern';
-      var disqus_identifier = '2016/02/07/grammar-lesson2/';
-      var disqus_title = '语法笔记「二」';
-      var disqus_url = 'http://wiekern.github.io/2016/02/07/grammar-lesson2/';
+      var disqus_identifier = '2016/02/14/Binomialverteilung/';
+      var disqus_title = '二项分布令人迷惑的n次和1次实验的期望';
+      var disqus_url = 'http://wiekern.github.io/2016/02/14/Binomialverteilung/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
