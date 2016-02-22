@@ -67,7 +67,7 @@ Jede gebundene Variable in der Form wird unterschiedlich genannt. z.B.$ \forall 
 <meta property="og:description" content="Bereinigte Form erfüllt die folgenden Bedingungen,
 
 Jede gebundene Variable in der Form wird unterschiedlich genannt. z.B.$ \forall xP(x) \lor \forall xQ(x) $    ist keine bereinigte Form.$ \equiv \fo">
-<meta property="og:updated_time" content="2016-02-21T21:25:20.000Z">
+<meta property="og:updated_time" content="2016-02-22T07:10:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bereinigte Form">
 <meta name="twitter:description" content="Bereinigte Form erfüllt die folgenden Bedingungen,
@@ -269,7 +269,7 @@ Jede gebundene Variable in der Form wird unterschiedlich genannt. z.B.$ \forall 
 <ol>
 <li><p>Jede gebundene Variable in der Form wird unterschiedlich genannt.<br> z.B.<br>$ \forall xP(x) \lor \forall xQ(x) $    ist keine bereinigte Form.<br>$ \equiv \forall xP(x) \lor \forall yQ(y) $   gebundene UmbenennungQ(x)[x/y], bereinigte Form</p>
 </li>
-<li><p>Keine Variable in der Formel ist sowohl gebunden als auch frei.<br> z.B.<br>$ \forall x(P(x)  \lor Q(x)) $ ist keine bereinigte Form.<br>$\equiv \forall x(P(x)  \lor Q(y)) $  order  $ \forall y(P(y)  \lor Q(x)) $ bereinigt</p>
+<li><p>Keine Variable in der Formel ist sowohl gebunden als auch frei.<br> z.B.<br>Falsch: $ \forall x(P(x)  \lor Q(x)) $ ist keine bereinigte Form.<br>$\equiv \forall x(P(x)  \lor Q(y)) $  order  $ \forall y(P(y)  \lor Q(x)) $ bereinigt<br>Richtig: $ \forall xP(x)  \lor Q(x) $ ist keine bereinigte Form.<br>$\equiv \forall xP(x)  \lor Q(y) $  order  $ \forall yP(y)  \lor Q(x) $ bereinigt</p>
 </li>
 </ol>
 <p>Jetzt nehmen wir noch ein Beispiel, das die obigen Eigenschaften besitzt.<br>z.B.<br>$ \forall xP(x) \lor Q(x) \lor \exists xQ(x) $ nicht bereinigt<br>$ \equiv \forall xP(x) \lor Q(y) \lor \exists zQ(z) $ bereinigt</p>
