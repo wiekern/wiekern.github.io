@@ -1,0 +1,6 @@
+#hexo robots.txt
+User-agent: *
+
+Sitemap: http://wiekern.github.com/sitemap.xml
+Sitemap: http://wiekern.github.com/baidusitemap.xml
+
